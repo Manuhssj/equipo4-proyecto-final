@@ -62,10 +62,6 @@
                                                             <th class="ps-0" scope="row">Correo Electrónico: </th>
                                                             <td class="text-muted">anttg@gmail.com</td>
                                                         </tr>
-                                                        <tr>
-                                                            <th class="ps-0" scope="row">Se unió en: </th>
-                                                            <td class="text-muted">24 Nov 2021</td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -124,11 +120,10 @@
                                                                     </div>
 
                                                                     <!--end col-->
-
-                                                                    <!-- <div class="col-xxl-6">
-                                                                                        <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                                        <input name="cover" type="file" class="form-control">
-                                                                                    </div> -->
+                                                                    <div class="col-xxl-6">
+                                                                        <label for="formFile" class="form-label">Imagen Avatar</label>
+                                                                        <input name="cover" type="file" class="form-control">
+                                                                    </div>
 
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
@@ -140,38 +135,6 @@
                                                                 </div>
                                                                 <!--end row-->
                                                             </form>
-                                                        </div>
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeImgModal"><i class="ri-edit-box-line align-bottom"></i> Cambiar foto de perfil</button>
-                                                        <div class="modal fade modal-lg" id="changeImgModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalgridLabel">Cambiar imagen de usuario</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form action="javascript:void(0);">
-                                                                            <div class="row g-3">
-
-                                                                                <div class="col-xxl-15">
-                                                                                    <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                                    <input name="cover" type="file" class="form-control">
-                                                                                </div>
-
-                                                                                <div class="col-lg-12">
-                                                                                    <div class="hstack gap-2 justify-content-end">
-                                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                                        <button type="submit" class="btn btn-success">Guardar</button>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <!--end col-->
-                                                                            </div>
-                                                                            <!--end row-->
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div><!-- end row -->
