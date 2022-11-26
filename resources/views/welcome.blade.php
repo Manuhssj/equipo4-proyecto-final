@@ -82,25 +82,28 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="">
+                                            <form action=" {{ route('login') }} " method="POST">
+                                                @csrf
 
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="text" class="form-control" id="email" placeholder="ejemplo123@gmail.com">
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="ejemplo123@gmail.com" value="{{ old('email') }}">
+                                                    @error('email') <div> {{ $message }} </div> @enderror
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="****************" id="password-input">
+                                                        <input type="password" class="form-control pe-5 password-input" placeholder="****************" id="password-input" name="password">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill"></i></button>
+                                                        @error('password') <div> {{ $message }} </div> @enderror
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <a href="{{ route('users.index') }} " class="link-primary">
-                                                        <button type="button" class="btn btn-success w-100">iniciar sesión</button>
-                                                    </a>
+                                                    {{-- <a href="{{ route('users.index') }} " class="link-primary"> --}}
+                                                        <button type="submit" class="btn btn-success w-100">iniciar sesión</button>
+                                                    {{-- </a> --}}
                                                     
                                                 </div>
                                             </form>

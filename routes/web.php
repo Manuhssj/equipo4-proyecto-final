@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+})->name('login'); */
+
+
+
+Route::get('/', function () {
+    /* return User::all(); */
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return redirect('/');
 })->name('login');
+
+
 
 Route::get('/users', function () {
     return view('users.index');

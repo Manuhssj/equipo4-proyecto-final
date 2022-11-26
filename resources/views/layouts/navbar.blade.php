@@ -81,7 +81,10 @@
                         <!-- item-->
                         <h6 class="dropdown-header">!Bienvenido Manufly!</h6>
                         <a class="dropdown-item" href="{{ route('users.detailUser') }}"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Perfil</span></a>
-                        <a class="dropdown-item" href="{{ route('login') }}"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Cerrar sesión</span></a>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Cerrar sesión</span></button>
+                        </form>
                     </div>
                 </div>
             </div>

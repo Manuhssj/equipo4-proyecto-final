@@ -35,35 +35,36 @@ class DatabaseSeeder extends Seeder
         $user->save();
 
 
-        $user2 = new User();
-        $user2->name = "Diego";
-        $user2->lastname = "Ochoa";
-        $user2->phone = "6123327722";
-        $user2->email = "dochoa_19@alu.uabcs.mx";
-        $user2->avatar = "";
-        $user2->rol ="Administrador";
-        $user2->password = Hash::make("contraseñadiego");
-        $user2->save();
+        $user = new User();
+        $user->name = "Diego";
+        $user->lastname = "Ochoa";
+        $user->phone = "6123327722";
+        $user->email = "dochoa_19@alu.uabcs.mx";
+        $user->avatar = "";
+        $user->rol ="Administrador";
+        $user->password = Hash::make("contraseñadiego");
+        $user->save();
 
-        $user3 = new User();
-        $user3->name = "Enrique";
-        $user3->lastname = "God";
-        $user3->phone = "6121223131";
-        $user3->email = "egod_19@alu.uabcs.mx";
-        $user3->avatar = "";
-        $user3->rol ="Administrador";
-        $user3->password = Hash::make("contraseñakime");
-        $user3->save();
+        $user = new User();
+        $user->name = "Enrique";
+        $user->lastname = "God";
+        $user->phone = "6121223131";
+        $user->email = "egod_19@alu.uabcs.mx";
+        $user->avatar = "";
+        $user->rol ="Administrador";
+        $user->password = Hash::make("contraseñakime");
+        $user->save();
 
-        $user4 = new User();
-        $user4->name = "Francisco";
-        $user4->lastname = "Diaz";
-        $user4->phone = "6121332241";
-        $user4->email = "fidaz_19@alu.uabcs.mx";
-        $user4->avatar = "";
-        $user4->rol ="Administrador";
-        $user4->password = Hash::make("contraseñafrank");
-        $user4->save();
+        $user = new User();
+        $user->name = "Francisco";
+        $user->lastname = "Diaz";
+        $user->phone = "6121332241";
+        $user->email = "fdiaz_19@alu.uabcs.mx";
+        $user->avatar = "";
+        $user->rol ="Administrador";
+        $user->password = Hash::make("contraseñafrank");
+        $user->save();
         
+        $this->call(ClientSeeder::class);
     }
 }
