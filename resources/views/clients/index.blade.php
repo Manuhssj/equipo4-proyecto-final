@@ -106,9 +106,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -126,9 +128,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -146,9 +150,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -166,9 +172,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -186,9 +194,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -206,9 +216,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -226,9 +238,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -246,9 +260,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -266,9 +282,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -286,9 +304,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -306,9 +326,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -326,9 +348,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -346,9 +370,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -366,9 +392,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -386,9 +414,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -406,9 +436,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -426,9 +458,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -446,9 +480,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -466,9 +502,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>
@@ -486,9 +524,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="ri-delete-bin-5-line"></i>
-                            </button>
+                            <form class="form-eliminar" action="" method="">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="ri-delete-bin-5-line"></i>
+                                </button>
+                            </form>
                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                         </div>
                     </td>

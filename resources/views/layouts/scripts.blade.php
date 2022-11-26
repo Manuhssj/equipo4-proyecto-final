@@ -13,8 +13,8 @@
         </div>
     </div>
 
-        <!-- JAVASCRIPT -->
-        <script src="{{asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- JAVASCRIPT -->
+    <script src="{{asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('libs/simplebar/simplebar.min.js')}}"></script>
     <script src="{{asset('libs/node-waves/waves.min.js')}}"></script>
     <script src="{{asset('libs/feather-icons/feather.min.js')}}"></script>
@@ -67,3 +67,29 @@
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
     <script src="{{asset('js/datatables.js')}}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+            })
+        });
+    </script>
