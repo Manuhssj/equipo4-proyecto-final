@@ -24,47 +24,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $user = new User();
-        $user->name = "Manuel Alejandro";
-        $user->lastname = "Diaz Hernandez";
-        $user->phone = "6121316096";
-        $user->email = "mdiaz_19@alu.uabcs.mx";
-        $user->avatar = "";
-        $user->rol ="Administrador";
-        $user->password = Hash::make("contraseñamanu");
-        $user->save();
-
-
-        $user = new User();
-        $user->name = "Diego";
-        $user->lastname = "Ochoa";
-        $user->phone = "6123327722";
-        $user->email = "dochoa_19@alu.uabcs.mx";
-        $user->avatar = "";
-        $user->rol ="Administrador";
-        $user->password = Hash::make("contraseñadiego");
-        $user->save();
-
-        $user = new User();
-        $user->name = "Enrique";
-        $user->lastname = "God";
-        $user->phone = "6121223131";
-        $user->email = "egod_19@alu.uabcs.mx";
-        $user->avatar = "";
-        $user->rol ="Administrador";
-        $user->password = Hash::make("contraseñakime");
-        $user->save();
-
-        $user = new User();
-        $user->name = "Francisco";
-        $user->lastname = "Diaz";
-        $user->phone = "6121332241";
-        $user->email = "fdiaz_19@alu.uabcs.mx";
-        $user->avatar = "";
-        $user->rol ="Administrador";
-        $user->password = Hash::make("contraseñafrank");
-        $user->save();
-        
-        $this->call(ClientSeeder::class);
+        $this -> call([
+            UserSeeder::class,
+            ClientSeeder::class,
+        ]);
     }
 }
