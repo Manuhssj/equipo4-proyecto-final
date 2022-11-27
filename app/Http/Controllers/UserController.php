@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -44,9 +45,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        /* return User::find($id); */
+        /* $users = User::all(); */
+        $users = User::find($id);
+        return view('users.detailUser', compact('users'));
     }
 
     /**

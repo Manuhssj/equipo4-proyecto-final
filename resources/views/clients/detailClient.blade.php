@@ -24,8 +24,7 @@
                 <div class="row g-4">
                     <div class="col">
                         <div class="p-2">
-                            <h3 class="text-white mb-1">Annette Adame González</h3>
-                            <!-- <p class="text-white-75">Founder</p> -->
+                            <h3 class="text-white mb-1">{{ $clients->name.' '.$clients->lastname }}</h3>
                         </div>
                     </div>
                 </div>
@@ -42,21 +41,28 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Nombre: </th>
-                                                        <td class="text-muted">Annette</td>
+                                                        <td class="text-muted">{{$clients->name}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Apellidos: </th>
-                                                        <td class="text-muted">Adame González</td>
+                                                        <td class="text-muted">{{$clients->lastname}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">No. Celular:</th>
-                                                        <td class="text-muted">6125085004</td>
+                                                        <td class="text-muted">{{$clients->phone}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Correo Electrónico: </th>
-                                                        <td class="text-muted">anttg@gmail.com</td>
+                                                        <td class="text-muted">{{$clients->email}}</td>
                                                     </tr>
-
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Fecha de creación: </th>
+                                                        <td class="text-muted">{{ $clients->created_at }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Ultima actualización: </th>
+                                                        <td class="text-muted">{{ $clients->updated_at }}</td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -77,27 +83,27 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                                <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" required>
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="lastName" class="form-label">Apellidos</label>
-                                                                                <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" required>
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="emailInput" class="form-label">Correo</label>
-                                                                                <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" required>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="phone" class="form-label">Número celular</label>
-                                                                                <input type="text" class="form-control" id="phone" placeholder="Ingrese el numero celular">
+                                                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $clients->phone }}" minlength="10" maxlength="10" required>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-12">

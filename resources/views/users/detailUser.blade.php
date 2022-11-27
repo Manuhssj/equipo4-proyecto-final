@@ -28,8 +28,8 @@
                     <!--end col -->
                     <div class="col">
                         <div class="p-2">
-                            <h3 class="text-white mb-1">Annette Adame González</h3>
-                            <p class="text-white-75">Founder</p>
+                            <h3 class="text-white mb-1">{{ $users->name.' '.$users->lastname }}</h3>
+                            <p class="text-white-75">Administrador</p>
                         </div>
                     </div>
                 </div>
@@ -48,19 +48,27 @@
                                                     <tbody>
                                                         <tr>
                                                             <th class="ps-0" scope="row">Nombre(s): </th>
-                                                            <td class="text-muted">Annette</td>
+                                                            <td class="text-muted">{{ $users->name }}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="ps-0" scope="row">Apellidos: </th>
-                                                            <td class="text-muted">Adame González</td>
+                                                            <td class="text-muted">{{ $users->lastname }}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="ps-0" scope="row">No. Celular:</th>
-                                                            <td class="text-muted">6125085004</td>
+                                                            <td class="text-muted">{{ $users->phone }}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="ps-0" scope="row">Correo Electrónico: </th>
-                                                            <td class="text-muted">anttg@gmail.com</td>
+                                                            <td class="text-muted">{{ $users->email }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Fecha de creación: </th>
+                                                            <td class="text-muted">{{ $users->created_at }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Ultima actualización: </th>
+                                                            <td class="text-muted">{{ $users->updated_at }}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -79,19 +87,28 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form enctype="multipart/form-data" method="POST" action="">
+                                                                @csrf
+                                                                @method('put')
+
                                                                 <div class="row g-3">
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                            <label for="name" class="form-label">Nombre(s)</label>
+                                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" required>
+                                                                            @error('name')
+                                                                                <small>*{{$message}}</small>
+                                                                            @enderror
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Apellidos</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                            <label for="lastname" class="form-label">Apellidos</label>
+                                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" required>
+                                                                            @error('lastname')
+                                                                                <small>*{{$message}}</small>
+                                                                            @enderror
                                                                         </div>
                                                                     </div>
 
@@ -99,14 +116,20 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" required>
+                                                                            @error('email')
+                                                                                <small>*{{$message}}</small>
+                                                                            @enderror
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" required>
+                                                                            @error('password')
+                                                                                <small>*{{$message}}</small>
+                                                                            @enderror
                                                                         </div>
                                                                     </div>
 
@@ -114,15 +137,18 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Número celular</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                            <label for="phone" class="form-label">Número celular</label>
+                                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" required>
+                                                                            @error('phone')
+                                                                                <small>*{{$message}}</small>
+                                                                            @enderror
                                                                         </div>
                                                                     </div>
 
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                        <input name="cover" type="file" class="form-control">
+                                                                        <input type="file" name="cover" id="cover" name="cover" class="form-control" accept="image/*"> {{-- VALIDAR BIEN ESTO O MODIFICARLO --}}
                                                                     </div>
 
                                                                     <div class="col-lg-12">
