@@ -3,15 +3,16 @@
 
 <div class="card">
 
-    @if (session('success'))
+    @if (session('error'))
     <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
         <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-        - Los datos no se pudieron actualizar, datos incorrectos.
+        - {{session('error')}} {{-- Los datos no se pudieron actualizar, datos incorrectos. --}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @elseif (session('error'))
+    @elseif (session('success'))
     <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-        <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada.
+        <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong>
+        - {{session('success')}} {{-- Actualización completada. --}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
@@ -155,7 +156,7 @@
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                        <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*"> {{-- VALIDAR BIEN ESTO O MODIFICARLO --}}
+                                                                        <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*">
                                                                     </div>
 
                                                                     <div class="col-lg-12">

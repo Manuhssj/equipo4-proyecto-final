@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('contenido')
 
-@if (session('success'))
+@if (session('error'))
 <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
     <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-    - Hubo un error al añadir el usuario.
+    - {{session('error')}} {{-- Hubo un error al añadir el cliente. --}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-@elseif (session('error'))
+@elseif (session('success'))
 <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Se añadió el usuario de forma exitosa.
+    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> 
+    - {{session('success')}} {{-- Se añadió el cliente de forma exitosa. --}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
@@ -39,6 +40,9 @@
                                         <div>
                                             <label for="firstName" class="form-label">Nombre(s)</label>
                                             <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                            @error('name')
+                                            <small>*{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <!--end col-->
@@ -46,6 +50,9 @@
                                         <div>
                                             <label for="lastname" class="form-label">Apellidos</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                            @error('lastname')
+                                            <small>*{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -54,13 +61,19 @@
                                         <div>
                                             <label for="emailInput" class="form-label">Correo</label>
                                             <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                            @error('email')
+                                            <small>*{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" maxlength="25" required>
+                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" minlength="8" maxlength="25" required>
+                                            @error('password')
+                                            <small>*{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -70,6 +83,9 @@
                                         <div>
                                             <label for="phone" class="form-label">Número celular</label>
                                             <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)">
+                                            @error('phone')
+                                            <small>*{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -77,6 +93,9 @@
                                     <div class="col-xxl-6">
                                         <label for="formFile" class="form-label">Imagen Avatar</label>
                                         <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*">
+                                        @error('avatar')
+                                        <small>*{{$message}}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="col-lg-12">

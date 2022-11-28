@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -36,16 +38,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        /* $user = User::create([
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'phone' => $request->phone,
-            'rol' => 'Administrador',
-        ]);
-        return redirect()->back(); */
+        /* VALIDACIONES (Comentadas temporalmente) */
+        /* $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|unique:users|string|max:50',
+            'password' => ['required', Password::min(8)],
+            'phone' => 'required|numeric|min:10',
+        ]); */
 
+        /* INSTANCIA DE USER */
         $user = User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
@@ -55,6 +57,7 @@ class UserController extends Controller
             'rol' => 'Administrador',
         ]);
 
+        /* AGREGAR LA IMAGEN Y CREAR REGISTRO */
         if($user){
             if($request->hasFile('avatar')){
                 $file = $request->file('avatar');
@@ -65,9 +68,9 @@ class UserController extends Controller
                 $user->avatar = $name_file;
                 $user->save();
             }
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Se añadió el cliente de forma exitosa.');
         }
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Hubo un error al añadir el cliente.');
     }
 
     /**
@@ -102,10 +105,48 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $user = User::find($request->id);
-        $request['password'] = bcrypt($request['password']);
-        $user->update($request->all());
-        return redirect()->back();
+        /* BUSCAR REGISTRO */
+        $user = User::where('id',$request->id)->first();
+
+        /* VALIDACIONES (Comentadas temporalmente) */
+        /* $rules = [
+            'name' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|unique:users|string|max:50',
+            'phone' => 'required|numeric|min:10|max:10',
+        ];
+        if(isset($request['password']) && $request['password']!=''){
+            $password = $request['password'];
+            $rules['password'] = ['required', Password::min(8)];
+            $request->validate($rules);
+            $request['password'] = bcrypt($request['password']);
+        }else{
+            $request->validate($rules);
+            $request['password'] = $user->password;
+        } */
+
+        /* MODIFICAR IMAGEN Y ACTUALIZAR REGISTRO */
+        if($user){
+            if($user->avatar != "avatar.jpg" && $request->avatar != 'avatar.jpg'){
+                $path = storage_path()."/app/public/user/avatars/".$user->avatar;
+                if (File::exists($path)) {
+                    File::delete($path);
+                    $user->avatar = 'avatar.jpg';
+                }
+            }
+            if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+                $name_file = $user->id."_user".".".$file->getClientOriginalExtension();
+                $path = $request->file('avatar')->storeAs(
+                  'public/user/avatars/', $name_file
+                );
+                $user->avatar = $name_file;
+            }
+            $user->save();
+            $user->update($request->except(['avatar']));
+            return redirect()->back()->with('success', 'Actualización completada.');
+        }
+        return redirect()->back()->with('error', 'Los datos no se pudieron actualizar, datos incorrectos.');
     }
 
     /**
@@ -118,6 +159,10 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->back();
+        if ($user) {
+            $user->delete();
+            return redirect()->back()->with('success', 'true');
+        }
+        return redirect()->back()->with('error', 'true');
     }
 }
