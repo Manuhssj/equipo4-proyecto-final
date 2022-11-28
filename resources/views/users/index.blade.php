@@ -29,19 +29,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="javascript:void(0);">
+                            <form action="{{ url('users') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row g-3">
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                            <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre">
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <div>
-                                            <label for="lastName" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                            <label for="lastname" class="form-label">Apellidos</label>
+                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos">
                                         </div>
                                     </div>
 
@@ -49,14 +50,14 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="emailInput" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico">
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="passwordInput" placeholder="************">
+                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************">
                                         </div>
                                     </div>
 
@@ -64,8 +65,8 @@
 
                                     <div class="col-xxl-6">
                                         <div>
-                                            <label for="lastName" class="form-label">Número celular</label>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                            <label for="phone" class="form-label">Número celular</label>
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular">
                                         </div>
                                     </div>
 
@@ -126,7 +127,9 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <form class="form-eliminar" action="" method="">
+                            <form class="form-eliminar" action="{{route('users.delete', $user->id)}}" method="POST">
+                                @csrf
+                                @method('delete')
                                 <button type="submit" class="btn btn-danger">
                                     <i class="ri-delete-bin-5-line"></i>
                                 </button>

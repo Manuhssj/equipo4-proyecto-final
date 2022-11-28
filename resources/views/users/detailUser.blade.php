@@ -87,9 +87,11 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form enctype="multipart/form-data" method="POST" action="">
+                                                            <form enctype="multipart/form-data" method="POST" action="{{route('users.update', $users)}}">
                                                                 @csrf
                                                                 @method('put')
+
+                                                                <input type="hidden" id="id" name="id" value="{{$users->id}}">
 
                                                                 <div class="row g-3">
                                                                     <div class="col-xxl-6">
@@ -126,7 +128,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" required>
+                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="">
                                                                             @error('password')
                                                                                 <small>*{{$message}}</small>
                                                                             @enderror

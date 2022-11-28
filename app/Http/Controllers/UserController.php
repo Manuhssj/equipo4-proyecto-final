@@ -36,7 +36,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone' => $request->phone,
+            'rol' => 'Administrador',
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -47,8 +55,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        /* return User::find($id); */
-        /* $users = User::all(); */
         $users = User::find($id);
         return view('users.detailUser', compact('users'));
     }
@@ -71,9 +77,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $user = User::find($request->id);
+        $user->update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -82,8 +90,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
     }
 }
