@@ -2,15 +2,21 @@
 @section('contenido')
 
 <div class="card">
-    <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-        <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-        - Hubo un error al añadir el cliente.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-        <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Se añadió el cliente de forma exitosa.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+
+    @if (session('success'))
+        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+            - Hubo un error al añadir el cliente.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif (session('error'))
+        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Se añadió el cliente de forma exitosa.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+
     <div class="card-header border-0">
         <div class="row g-4">
 

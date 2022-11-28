@@ -2,17 +2,22 @@
 @section('contenido')
 
 <div class="card">
-    <!-- Boton con el alert por error al iniciar sesion -->
-    <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-        <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-        - Los datos no se pudieron actualizar, datos incorrectos
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <!-- Success Alert -->
-    <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-        <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+
+    @if (session('success'))
+        <!-- Boton con el alert por error al iniciar sesion -->
+        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+            - Los datos no se pudieron actualizar, datos incorrectos
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif (session('error'))
+        <!-- Success Alert -->
+        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    
     <div>
         <div class="container-fluid">
             <div class="profile-foreground position-relative mx-n2 mt-n2">
