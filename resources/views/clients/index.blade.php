@@ -41,14 +41,14 @@
                                             <div class="col-xxl-6">
                                                 <div>
                                                     <label for="firstName" class="form-label">Nombre(s)</label>
-                                                    <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                    <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-6">
                                                 <div>
                                                     <label for="lastName" class="form-label">Apellidos</label>
-                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                 </div>
                                             </div>
 
@@ -56,7 +56,7 @@
                                             <div class="col-xxl-6">
                                                 <div>
                                                     <label for="emailInput" class="form-label">Correo</label>
-                                                    <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                    <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -64,7 +64,7 @@
                                             <div class="col-xxl-6">
                                                 <div>
                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular" minlength="10" maxlength="10" onkeypress="return solonumeros(event)">
                                                 </div>
                                             </div>
 

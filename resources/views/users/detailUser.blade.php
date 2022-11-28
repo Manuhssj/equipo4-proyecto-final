@@ -4,18 +4,18 @@
 <div class="card">
 
     @if (session('success'))
-        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-            - Los datos no se pudieron actualizar, datos incorrectos.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+    <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+        <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+        - Los datos no se pudieron actualizar, datos incorrectos.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     @elseif (session('error'))
-        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+    <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+        <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     @endif
-    
+
     <div>
         <div class="container-fluid">
             <div class="profile-foreground position-relative mx-n2 mt-n2">
@@ -102,9 +102,9 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="name" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" required>
+                                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                             @error('name')
-                                                                                <small>*{{$message}}</small>
+                                                                            <small>*{{$message}}</small>
                                                                             @enderror
                                                                         </div>
                                                                     </div>
@@ -112,9 +112,9 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastname" class="form-label">Apellidos</label>
-                                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" required>
+                                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                             @error('lastname')
-                                                                                <small>*{{$message}}</small>
+                                                                            <small>*{{$message}}</small>
                                                                             @enderror
                                                                         </div>
                                                                     </div>
@@ -123,9 +123,9 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" required>
+                                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                                             @error('email')
-                                                                                <small>*{{$message}}</small>
+                                                                            <small>*{{$message}}</small>
                                                                             @enderror
                                                                         </div>
                                                                     </div>
@@ -133,9 +133,9 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="">
+                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25" required>
                                                                             @error('password')
-                                                                                <small>*{{$message}}</small>
+                                                                            <small>*{{$message}}</small>
                                                                             @enderror
                                                                         </div>
                                                                     </div>
@@ -145,9 +145,9 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="phone" class="form-label">Número celular</label>
-                                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" required>
+                                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" required>
                                                                             @error('phone')
-                                                                                <small>*{{$message}}</small>
+                                                                            <small>*{{$message}}</small>
                                                                             @enderror
                                                                         </div>
                                                                     </div>

@@ -88,21 +88,21 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" required>
+                                                                                <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="lastName" class="form-label">Apellidos</label>
-                                                                                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" required>
+                                                                                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="emailInput" class="form-label">Correo</label>
-                                                                                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" required>
+                                                                                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-xxl-6">

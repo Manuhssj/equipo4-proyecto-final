@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('contenido')
 
-    @if (session('success'))
-        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-            - Hubo un error al añadir el usuario.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @elseif (session('error'))
-        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Se añadió el usuario de forma exitosa.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+@if (session('success'))
+<div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+    <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+    - Hubo un error al añadir el usuario.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@elseif (session('error'))
+<div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Se añadió el usuario de forma exitosa.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 
 <div class="row g-4">
 
@@ -38,14 +38,14 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                            <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre">
+                                            <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" required>
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="lastname" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos">
+                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" required>
                                         </div>
                                     </div>
 
@@ -53,14 +53,14 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="emailInput" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico">
+                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************">
+                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" maxlength="25" required>
                                         </div>
                                     </div>
 
@@ -69,7 +69,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="phone" class="form-label">Número celular</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular">
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)">
                                         </div>
                                     </div>
 
