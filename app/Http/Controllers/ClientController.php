@@ -36,7 +36,14 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = Client::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+        return redirect()->back()->with('error', 'Hubo un error al añadir el cliente.');
     }
 
     /**
