@@ -21,8 +21,8 @@
             <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
                 <div class="row g-4">
                     <div class="col-auto">
-                        <div class="avatar-lg">
-                            <img src="{{asset('images/users/avatar-1.jpg')}}" alt="user-img" class="img-thumbnail rounded-circle" />
+                        <div class="avatar-md">
+                            <img @if( isset($users->avatar) && $users->avatar != 'avatar.jpg') src="{{ asset('storage/user/avatars') }}/{{ $users->avatar }}" @else src="https://ui-avatars.com/api/?name={{ $users->name }}" @endif alt="user-img" class="img-thumbnail rounded-circle" />
                         </div>
                     </div>
                     <!--end col -->
@@ -150,7 +150,7 @@
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                        <input type="file" name="cover" id="cover" name="cover" class="form-control" accept="image/*"> {{-- VALIDAR BIEN ESTO O MODIFICARLO --}}
+                                                                        <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*"> {{-- VALIDAR BIEN ESTO O MODIFICARLO --}}
                                                                     </div>
 
                                                                     <div class="col-lg-12">

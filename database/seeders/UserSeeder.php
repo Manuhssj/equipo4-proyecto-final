@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         $user->lastname = "Diaz Hernandez";
         $user->phone = "6121316096";
         $user->email = "mdiaz_19@alu.uabcs.mx";
-        $user->avatar = "";
+        $user->avatar = "avatar.jpg";
         $user->rol ="Administrador";
         $user->password = bcrypt("contraseñamanu");
         $user->save();
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         $user->lastname = "Ochoa";
         $user->phone = "6123327722";
         $user->email = "dochoa_19@alu.uabcs.mx";
-        $user->avatar = "";
+        $user->avatar = "avatar.jpg";
         $user->rol ="Administrador";
         $user->password = bcrypt("contraseñadiego");
         $user->save();
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $user->lastname = "God";
         $user->phone = "6121223131";
         $user->email = "egod_19@alu.uabcs.mx";
-        $user->avatar = "";
+        $user->avatar = "avatar.jpg";
         $user->rol ="Administrador";
         $user->password = bcrypt("contraseñakime");
         $user->save();
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
         $user->lastname = "Diaz";
         $user->phone = "6121332241";
         $user->email = "fdiaz_19@alu.uabcs.mx";
-        $user->avatar = "";
+        $user->avatar = "avatar.jpg";
         $user->rol ="Administrador";
         $user->password = bcrypt("contraseñafrank");
         $user->save();

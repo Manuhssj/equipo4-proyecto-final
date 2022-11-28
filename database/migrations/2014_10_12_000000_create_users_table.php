@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->text('avatar')->nullable();
+            $table->string('avatar', 2048)->default('avatar.jpg');
             $table->string('rol');
             $table->string('password');
             $table->rememberToken();

@@ -36,6 +36,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        /* $user = User::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone' => $request->phone,
+            'rol' => 'Administrador',
+        ]);
+        return redirect()->back(); */
+
         $user = User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
@@ -44,6 +54,19 @@ class UserController extends Controller
             'phone' => $request->phone,
             'rol' => 'Administrador',
         ]);
+
+        if($user){
+            if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+                $name_file = $user->id."_user".".".$file->getClientOriginalExtension();
+                $path = $request->file('avatar')->storeAs(
+                    'public/user/avatars/', $name_file
+                );
+                $user->avatar = $name_file;
+                $user->save();
+            }
+            return redirect()->back();
+        }
         return redirect()->back();
     }
 
@@ -80,6 +103,7 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::find($request->id);
+        $request['password'] = bcrypt($request['password']);
         $user->update($request->all());
         return redirect()->back();
     }

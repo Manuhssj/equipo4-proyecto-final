@@ -73,7 +73,7 @@
                                     <!--end col-->
                                     <div class="col-xxl-6">
                                         <label for="formFile" class="form-label">Imagen Avatar</label>
-                                        <input name="cover" type="file" class="form-control">
+                                        <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*">
                                     </div>
 
                                     <div class="col-lg-12">
