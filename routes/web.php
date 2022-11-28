@@ -47,7 +47,7 @@ use App\Http\Controllers\ClientController;
     Route::get('clients/{id}/', [ClientController::class, 'show'])->middleware(['auth', 'verified'])->name('clients.detailClient');
     Route::post('clients/', [ClientController::class, 'store'])->middleware(['auth', 'verified'])->name('clients.store');
     Route::put('clients/{id}/', [ClientController::class, 'update'])->middleware(['auth', 'verified'])->name('clients.update');
-    Route::delete('clients/{id}/', [ClientController::class, 'delete'])->middleware(['auth', 'verified'])->name('clients.delete');
+    Route::delete('clients/{id}/', [ClientController::class, 'destroy'])->middleware(['auth', 'verified'])->name('clients.delete');
 
     /* Route::get('/users/detail-user', function () {
         return view('users.detailUser');
