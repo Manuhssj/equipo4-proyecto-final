@@ -68,7 +68,7 @@ class UserController extends Controller
                 $user->avatar = $name_file;
                 $user->save();
             }
-            return redirect()->back()->with('success', 'Se añadió el cliente de forma exitosa.');
+            return redirect()->back()->with('success', 'Se añadió el usuario de forma exitosa.');
         }
         return redirect()->back()->with('error', 'Hubo un error al añadir el cliente.');
     }
@@ -161,8 +161,8 @@ class UserController extends Controller
         $user->delete();
         if ($user) {
             $user->delete();
-            return redirect()->back()->with('success', 'true');
+            return redirect()->back()->with('success', 'Se ha eliminado el usuario.');
         }
-        return redirect()->back()->with('error', 'true');
+        return redirect()->back()->with('error', 'No fue posible eliminar el usuario.');
     }
 }
