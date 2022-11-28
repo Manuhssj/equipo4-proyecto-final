@@ -108,7 +108,9 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
-                            <form class="form-eliminar" action="" method="">
+                            <form class="form-eliminar" action="{{route('clients.delete', $client->id)}}" method="POST">
+                                @csrf
+                                @method('delete')
                                 <button type="submit" class="btn btn-danger">
                                     <i class="ri-delete-bin-5-line"></i>
                                 </button>
