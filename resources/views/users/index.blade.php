@@ -20,9 +20,7 @@
     <div class="col-sm">
         <div div class="d-flex justify-content-sm-end">
 
-
-            <!-- Grids in modals -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+            <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
                 + Añadir un usuario
             </button>
             <div class="modal fade modal-lg" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
@@ -117,12 +115,13 @@
 </div>
 
 <div class="card">
-
     <div class="card-header border-0">
+
 
     </div>
     <!-- end card header -->
     <div class="card-body">
+        
         <!-- Tables Without Borders -->
         <table id="dataTables-10-row" name="dataTables-example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
             <thead>

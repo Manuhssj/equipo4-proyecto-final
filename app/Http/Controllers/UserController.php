@@ -142,9 +142,8 @@ class UserController extends Controller
                 );
                 $user->avatar = $name_file;
             }
-            $user->save();
             $user->update($request->except(['avatar']));
-            return redirect()->back()->with('success', 'Actualización completada.');
+            return redirect()->back()->with('success', 'Actualización completada satisfactoriamente');
         }
         return redirect()->back()->with('error', 'Los datos no se pudieron actualizar, datos incorrectos.');
     }
@@ -158,7 +157,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->delete();
         if ($user) {
             $user->delete();
             return redirect()->back()->with('success', 'Se ha eliminado el usuario.');

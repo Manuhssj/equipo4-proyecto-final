@@ -22,8 +22,7 @@
 
             <div class="col-sm">
                 <div div class="d-flex justify-content-sm-end">
-
-
+                    
                     <!-- Grids in modals -->
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
                         + Añadir un Cliente

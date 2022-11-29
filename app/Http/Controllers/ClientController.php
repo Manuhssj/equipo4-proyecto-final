@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class ClientController extends Controller
 {
@@ -75,10 +76,27 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
+     * 
      */
     public function update(Request $request, Client $client)
     {
-        //
+        // /* BUSCAR REGISTRO */
+        // $client = Client::where('id',$request->id)->first();
+        
+
+        // if($client){
+        //     $client->save();
+        //     return redirect()->back()->with('success', 'Actualización completada.');
+        // }
+        // return redirect()->back()->with('error', 'Los datos no se pudieron actualizar, datos incorrectos.');
+
+        if ($client) {
+            # code...
+            $client = Client::find($request->id);
+            $client->update($request->all());
+            return redirect()->back()->with("success","Actualizacion completada satisfactoriamente");
+        }
+        return redirect()->back()->with("error","Los datos no se pudieron actualizar, datos incorrectos");
     }
 
     /**
@@ -91,9 +109,11 @@ class ClientController extends Controller
     {
         //
         $client = Client::find($id);
-
-        $client->delete();
-        return redirect()->back();
+        if ($cient) {
+            $client->delete();
+            return redirect()->back()->with('success', 'Se ha eliminado el cliente satisfactoriamente');
+        }
+        return redirect()->back()->with('error', 'No fue posible eliminar el cliente satisfactoriamente');
 
     }
 }

@@ -83,7 +83,9 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="javascript:void(0);">
+                                                                <form action="{{route('clients.update', $clients)}}" method="POST">
+                                                                    @csrf
+                                                                    @method('put')
                                                                     <div class="row g-3">
                                                                         <div class="col-xxl-6">
                                                                             <div>
