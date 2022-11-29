@@ -91,6 +91,9 @@
                                                                             <div>
                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
                                                                                 <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                                @error('name')
+                                                                                    <small>*{{$message}}</small>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
@@ -98,6 +101,9 @@
                                                                             <div>
                                                                                 <label for="lastName" class="form-label">Apellidos</label>
                                                                                 <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                                @error('lastname')
+                                                                                    <small>*{{$message}}</small>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
                                                                         <!--end col-->
@@ -105,12 +111,18 @@
                                                                             <div>
                                                                                 <label for="emailInput" class="form-label">Correo</label>
                                                                                 <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                                                                @error('email')
+                                                                                    <small>*{{$message}}</small>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="phone" class="form-label">Número celular</label>
                                                                                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $clients->phone }}" minlength="10" maxlength="10" required>
+                                                                                @error('phone')
+                                                                                    <small>*{{$message}}</small>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-12">

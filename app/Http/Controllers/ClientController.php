@@ -109,7 +109,7 @@ class ClientController extends Controller
     {
         //
         $client = Client::find($id);
-        if ($cient) {
+        if ($client) {
             $client->delete();
             return redirect()->back()->with('success', 'Se ha eliminado el cliente satisfactoriamente');
         }
