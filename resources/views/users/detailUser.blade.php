@@ -134,7 +134,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25" required>
+                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25">
                                                                             @error('password')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
