@@ -127,21 +127,24 @@ class UserController extends Controller
 
         /* MODIFICAR IMAGEN Y ACTUALIZAR REGISTRO */
         if($user){
-            if($user->avatar != "avatar.jpg" && $request->avatar != 'avatar.jpg'){
-                $path = storage_path()."/app/public/user/avatars/".$user->avatar;
-                if (File::exists($path)) {
-                    File::delete($path);
-                    $user->avatar = 'avatar.jpg';
-                }
-            }
             if($request->hasFile('avatar')){
-                $file = $request->file('avatar');
-                $name_file = $user->id."_user".".".$file->getClientOriginalExtension();
-                $path = $request->file('avatar')->storeAs(
-                  'public/user/avatars/', $name_file
-                );
-                $user->avatar = $name_file;
+                if($user->avatar != "avatar.jpg" && $request->avatar != 'avatar.jpg'){
+                    $path = storage_path()."/app/public/user/avatars/".$user->avatar;
+                    if (File::exists($path)) {
+                        File::delete($path);
+                        $user->avatar = 'avatar.jpg';
+                    }
+                }
+                if($request->hasFile('avatar')){
+                    $file = $request->file('avatar');
+                    $name_file = $user->id."_user".".".$file->getClientOriginalExtension();
+                    $path = $request->file('avatar')->storeAs(
+                      'public/user/avatars/', $name_file
+                    );
+                    $user->avatar = $name_file;
+                } 
             }
+            $request['password'] = bcrypt($request['password']);
             $user->update($request->except(['avatar']));
             return redirect()->back()->with('success', 'Actualización completada satisfactoriamente');
         }
