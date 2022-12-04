@@ -126,6 +126,11 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
+
+                            <a data-bs-toggle="modal" href="#updateModalgrid" class="btn btn-success" data-update-link="{{route('clients.update', $clients)}}">
+                                <i class="ri-edit-box-line align-bottom"></i>
+                            </a>
+
                             <form class="form-eliminar" action="{{route('clients.delete', $client->id)}}" method="POST">
                                 @csrf
                                 @method('delete')
