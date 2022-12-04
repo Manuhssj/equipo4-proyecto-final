@@ -9,7 +9,7 @@
 </div>
 @elseif (session('success'))
 <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> 
+    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong>
     - {{session('success')}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -121,7 +121,6 @@
     </div>
     <!-- end card header -->
     <div class="card-body">
-        
         <!-- Tables Without Borders -->
         <table id="dataTables-10-row" name="dataTables-example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
             <thead>
@@ -148,6 +147,101 @@
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </a>
+
+                            <a data-bs-toggle="modal" href="#updateModalgrid" class="btn btn-success" data-update-link="{{route('users.update', $users)}}">
+                                <i class="ri-edit-box-line align-bottom"></i>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade modal-lg" id="updateModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalgridLabel">Editar usuario</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form enctype="multipart/form-data" method="POST" action="{{route('users.update', $users)}}">
+                                                @csrf
+                                                @method('put')
+
+                                                <input type="hidden" id="id" name="id" value="{{$users->id}}">
+
+                                                <div class="row g-3">
+                                                    <div class="col-xxl-6">
+                                                        <div>
+                                                            <label for="name" class="form-label">Nombre(s)</label>
+                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                            @error('name')
+                                                            <small>*{{$message}}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-xxl-6">
+                                                        <div>
+                                                            <label for="lastname" class="form-label">Apellidos</label>
+                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                            @error('lastname')
+                                                            <small>*{{$message}}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <!--end col-->
+                                                    <div class="col-xxl-6">
+                                                        <div>
+                                                            <label for="emailInput" class="form-label">Correo</label>
+                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                                            @error('email')
+                                                            <small>*{{$message}}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-xxl-6">
+                                                        <div>
+                                                            <label for="passwordInput" class="form-label">Contraseña</label>
+                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25">
+                                                            @error('password')
+                                                            <small>*{{$message}}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <!--end col-->
+
+                                                    <div class="col-xxl-6">
+                                                        <div>
+                                                            <label for="phone" class="form-label">Número celular</label>
+                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" required>
+                                                            @error('phone')
+                                                            <small>*{{$message}}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <!--end col-->
+                                                    <div class="col-xxl-6">
+                                                        <label for="formFile" class="form-label">Imagen Avatar</label>
+                                                        <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*">
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div><!-- end row -->
+                            </div>
+
+
                             <form class="form-eliminar" action="{{route('users.delete', $user->id)}}" method="POST">
                                 @csrf
                                 @method('delete')

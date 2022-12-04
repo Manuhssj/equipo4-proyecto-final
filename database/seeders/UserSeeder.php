@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
         $user->lastname = "Diaz";
         $user->phone = "6121332241";
         $user->email = "fdiaz_19@alu.uabcs.mx";
-        $user->avatar = "";
+        $user->avatar = "avatar.jpg";
         $user->rol ="Administrador";
         $user->password = bcrypt("contraseñafrank");
         $user->save();
