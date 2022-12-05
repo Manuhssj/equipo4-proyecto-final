@@ -163,7 +163,7 @@
                 </div><!-- end card header -->
                 <div class="card-body">
                     <!-- Tables Without Borders -->
-                    <table class="table table-borderless table-nowrap align-middle">
+                    <table id="dataTables-10-row" name="dataTables-example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
