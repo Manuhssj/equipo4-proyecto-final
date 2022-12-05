@@ -17,6 +17,16 @@
     </div>
     @endif
 
+    @if($errors->any())
+        {!! implode('', $errors->all('
+        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+            - :message
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        ')) !!}
+    @endif
+
     <div>
         <div class="container-fluid">
             <div class="profile-foreground position-relative mx-n2 mt-n2">

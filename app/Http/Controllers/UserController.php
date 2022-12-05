@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use File;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
@@ -120,24 +121,19 @@ class UserController extends Controller
         /* BUSCAR REGISTRO */
         $user = User::where('id',$request->id)->first();
 
-        /* VALIDACIONES (Comentadas temporalmente) */
-        /* $rules = [
-            'name' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|unique:users|string|max:50',
-            'phone' => 'required|numeric|min:10|max:10',
-        ]; */
-
+        /* VALIDACIONES */
         $request->validate([
             'name'      => 'required',
             'lastname'  => 'required',
-            'email'     => 'required|string|max:50',
+            'email'     => ['required', 'string', Rule::unique('users')->ignore($user->id)],
             'phone'     => 'required|numeric|min:10',
         ],
         [   
             'name.required'     => 'Es necesario ingresar un nombre.',
             'lastname.required' => 'Es necesario ingresar al menos un apellido.',
-            'email.required'    => 'Es necesario ingresar un correo electrónico.',
+            'email.required'    => 'Es necesario ingresar un correo electrónico.', 
+            'email.string'      => 'El email debe ser alfanumérico.', 
+            'email.unique'      => 'Otro usuario ya tiene ese correo electrónico.', 
             'email.max'         => 'El email no debe exceder los 50 caracteres.',
             'password.min'      => 'La contraseña debe tener minimo 8 caracteres.',
             'phone.required'    => 'Es necesario ingresar un teléfono.', 
@@ -171,7 +167,6 @@ class UserController extends Controller
                     $user->avatar = $name_file;
                 } 
             }
-            /* $request['password'] = bcrypt($request['password']); */
             $user->update($request->except(['avatar']));
             return redirect()->back()->with('success', 'Actualización completada satisfactoriamente');
         }
