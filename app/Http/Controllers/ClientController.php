@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Rule;
 
 class ClientController extends Controller
 {
@@ -37,6 +37,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name'      => 'required',
+            'lastname'  => 'required',
+            'email'     => 'required|unique:clients|string|max:50',
+            'phone'     => 'required|numeric|min:10',
+        ],
+        [   
+            'name.required'     => 'Es necesario ingresar un nombre.',
+            'lastname.required' => 'Es necesario ingresar al menos un apellido.',
+            'email.required'    => 'Es necesario ingresar un correo electrónico.',
+            'email.unique'      => 'Otro usuario ya tiene ese correo electrónico.',
+            'email.max'         => 'El email no debe exceder los 50 caracteres.',
+            'phone.required'    => 'Es necesario ingresar un teléfono.', 
+            'phone.numeric'     => 'El teléfono debe ser numérico.', 
+            'phone.min'         => 'El teléfono debe ser de 10 caracteres.', 
+        ]);
         $client = Client::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
@@ -80,19 +97,25 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        // /* BUSCAR REGISTRO */
-        // $client = Client::where('id',$request->id)->first();
+
         
-
-        // if($client){
-        //     $client->save();
-        //     return redirect()->back()->with('success', 'Actualización completada.');
-        // }
-        // return redirect()->back()->with('error', 'Los datos no se pudieron actualizar, datos incorrectos.');
-
         if ($client) {
-            # code...
             $client = Client::find($request->id);
+            $request->validate([
+                'name'      => 'required',
+                'lastname'  => 'required',
+                'email'     => ['required', 'string', Rule::unique('clients')->ignore($client->id), 'max:50'],
+                'phone'     => 'required|numeric|min:10',
+            ],
+            [   
+                'name.required'     => 'Es necesario ingresar un nombre.',
+                'lastname.required' => 'Es necesario ingresar al menos un apellido.',
+                'email.required'    => 'Es necesario ingresar un correo electrónico.',
+                'email.max'         => 'El email no debe exceder los 50 caracteres.',
+                'phone.required'    => 'Es necesario ingresar un teléfono.',
+                'phone.numeric'     => 'El teléfono debe ser numérico.', 
+                'phone.min'         => 'El teléfono debe ser de 10 caracteres.', 
+            ]);
             $client->update($request->all());
             return redirect()->back()->with("success","Actualizacion completada satisfactoriamente");
         }

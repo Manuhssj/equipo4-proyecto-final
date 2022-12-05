@@ -9,6 +9,7 @@
             - {{session('success')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        
     @elseif (session('error'))
         <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
             <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
@@ -17,7 +18,16 @@
         </div>
     @endif
 
-
+    @if($errors->any())
+        {!! implode('', $errors->all('
+        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+            - :message
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        ')) !!}
+    @endif
+    
     <div class="card-header border-0">
         <div class="row g-4">
 
@@ -128,9 +138,9 @@
                                 </button>
                             </a>
 
-                            <a data-bs-toggle="modal" href="#updateModalgrid" class="btn btn-success" data-update-link="{{route('clients.update', $clients)}}">
+                            <button data-bs-toggle="modal" href="#updateModal" class="btn btn-success" onclick="edit(this)" data-client="{{$client}}">
                                 <i class="ri-edit-box-line align-bottom"></i>
-                            </a>
+                            </button>
 
                             <form class="form-eliminar" action="{{route('clients.delete', $client->id)}}" method="POST">
                                 @csrf
@@ -151,5 +161,88 @@
     </div>
     <!-- end card body -->
 </div>
+
+
+
+
+<!-- Modal Edit/Update -->
+<div class="modal fade modal-lg" id="updateModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalgridLabel">Editar cliente</h5>
+            </div>
+            <div class="modal-body">
+                <form id="formEdit" action="{{route('clients.update', $client)}}" method="POST">
+                    @csrf
+                    @method('put')
+
+                    <input type="hidden" id="idEdit" name="id">
+                    <div class="row g-3">
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="firstName" class="form-label">Nombre(s)</label>
+                                <input type="text" class="form-control" id="nameEdit" name="name" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required >
+                                @error('name')
+                                    <small>*{{$message}}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="lastName" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" id="lastnameEdit" name="lastname" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
+                                @error('lastname')
+                                    <small>*{{$message}}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="emailInput" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="emailEdit" name="email" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" onpaste="return false" required>
+                                @error('email')
+                                    <small>*{{$message}}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="phone" class="form-label">Número celular</label>
+                                <input type="text" class="form-control" id="phoneEdit" name="phone" placeholder="Ingrese el numero celular" minlength="10" maxlength="10" onpaste="return false" required>
+                                @error('phone')
+                                    <small>*{{$message}}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="hstack gap-2 justify-content-end">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section('scripts')
+    <script>
+        function edit(target) {
+            let client = JSON.parse(target.getAttribute('data-client'));
+            document.getElementById("formEdit").action = "{{url('clients')}}/"+client.id; 
+            document.getElementById("idEdit").value = client.id;
+            document.getElementById("nameEdit").value = client.name;
+            document.getElementById("lastnameEdit").value = client.lastname;
+            document.getElementById("emailEdit").value = client.email;
+            document.getElementById("phoneEdit").value = client.phone;
+        }
+    </script>
+@endsection
 
 @endsection

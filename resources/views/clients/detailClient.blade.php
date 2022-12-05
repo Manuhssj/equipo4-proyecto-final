@@ -9,6 +9,7 @@
         <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+
     @elseif (session('error'))
     <!-- Boton con el alert por error al iniciar sesion -->
     <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
@@ -18,6 +19,16 @@
     </div>
     @endif
     
+    @if($errors->any())
+        {!! implode('', $errors->all('
+        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+            - :message
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        ')) !!}
+    @endif
+
     <div>
         <div class="container-fluid">
             <div class="profile-foreground position-relative mx-n2 mt-n2">
@@ -90,7 +101,7 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                                <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" value="{{ $clients->name }}" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                                                 @error('name')
                                                                                     <small>*{{$message}}</small>
                                                                                 @enderror
@@ -100,7 +111,7 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="lastName" class="form-label">Apellidos</label>
-                                                                                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Ingrese los apellidos" value="{{ $clients->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                                                 @error('lastname')
                                                                                     <small>*{{$message}}</small>
                                                                                 @enderror
@@ -110,7 +121,7 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="emailInput" class="form-label">Correo</label>
-                                                                                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                                                                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $clients->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" onpaste="return false" required>
                                                                                 @error('email')
                                                                                     <small>*{{$message}}</small>
                                                                                 @enderror
@@ -119,7 +130,7 @@
                                                                         <div class="col-xxl-6">
                                                                             <div>
                                                                                 <label for="phone" class="form-label">Número celular</label>
-                                                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $clients->phone }}" minlength="10" maxlength="10" required>
+                                                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $clients->phone }}" minlength="10" maxlength="10" onpaste="return false" required>
                                                                                 @error('phone')
                                                                                     <small>*{{$message}}</small>
                                                                                 @enderror
