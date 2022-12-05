@@ -168,11 +168,11 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Folio</th>
-                                <th scope="col">Enviar a</th>
+                                <th scope="col">A nombre de</th>
                                 <th scope="col">Estado de la Reservación</th>
                                 <th scope="col">Servicio</th>
                                 <th scope="col">Cantidad de personas</th>
-                                <th scope="col">Precio</th>
+                                <th scope="col">Precio individual</th>
                                 <th scope="col">Total</th>
                                 <th scope="col">Opciones</th>
                             </tr>
@@ -181,12 +181,12 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <th>82712</th>
-                                <td>Annette González - CP 23088</td>
-                                <td>Entregado</td>
-                                <td>Comedor Miguel con 4 Sillas</td>
-                                <td>1</td>
-                                <td>$ 8999.98</td>
-                                <td>$ 8999.98</td>
+                                <td>Annette González</td>
+                                <td><span class="badge badge-soft-success text-uppercase">Pagado</span></td>
+                                <td>Nadar con delfines</td>
+                                <td>3</td>
+                                <td>$ 5,000</td>
+                                <td>$ 15,000</td>
 
                                 <td>
                                     <div class="hstack gap-3 fs-15">
