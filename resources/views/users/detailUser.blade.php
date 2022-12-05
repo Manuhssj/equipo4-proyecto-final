@@ -113,7 +113,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="name" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre" value="{{ $users->name }}" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                                             @error('name')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
@@ -123,7 +123,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastname" class="form-label">Apellidos</label>
-                                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" value="{{ $users->lastname }}" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                                                             @error('lastname')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
@@ -134,7 +134,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" value="{{ $users->email }}" maxlength="50" onkeypress="return soloLetrascorreo(event)" onpaste="return false" required>
                                                                             @error('email')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
@@ -144,7 +144,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25">
+                                                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" value="" maxlength="25" onpaste="return false">
                                                                             @error('password')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
@@ -156,7 +156,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="phone" class="form-label">Número celular</label>
-                                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" value="{{ $users->phone }}" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" onpaste="return false" required>
                                                                             @error('phone')
                                                                             <small>*{{$message}}</small>
                                                                             @enderror
