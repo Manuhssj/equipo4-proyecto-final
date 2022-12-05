@@ -38,14 +38,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        /* VALIDACIONES (Comentadas temporalmente) */
-        /* $request->validate([
-            'name' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|unique:users|string|max:50',
-            'password' => ['required', Password::min(8)],
-            'phone' => 'required|numeric|min:10',
-        ]); */
+        /* VALIDACIONES */
+        $request->validate([
+            'name'      => 'required',
+            'lastname'  => 'required',
+            'email'     => 'required|unique:users|string|max:50',
+            'password'  => ['required', Password::min(8)],
+            'phone'     => 'required|numeric|min:10',
+        ],
+        [   
+            'name.required'     => 'Es necesario ingresar un nombre.',
+            'lastname.required' => 'Es necesario ingresar al menos un apellido.',
+            'email.required'    => 'Es necesario ingresar un correo electrónico.',
+            'email.unique'      => 'Otro usuario ya tiene ese correo electrónico.',
+            'email.max'         => 'El email no debe exceder los 50 caracteres.',
+            'password.required' => 'Es necesario ingresar una contraseña.',
+            'password.min'      => 'La contraseña debe tener minimo 8 caracteres.',
+            'phone.required'    => 'Es necesario ingresar un teléfono.', 
+            'phone.numeric'     => 'El teléfono debe ser numérico.', 
+            'phone.min'         => 'El teléfono debe ser de 10 caracteres.', 
+        ]);
 
         /* INSTANCIA DE USER */
         $user = User::create([
@@ -114,16 +126,31 @@ class UserController extends Controller
             'lastname' => 'required',
             'email' => 'required|unique:users|string|max:50',
             'phone' => 'required|numeric|min:10|max:10',
-        ];
+        ]; */
+
+        $request->validate([
+            'name'      => 'required',
+            'lastname'  => 'required',
+            'email'     => 'required|string|max:50',
+            'phone'     => 'required|numeric|min:10',
+        ],
+        [   
+            'name.required'     => 'Es necesario ingresar un nombre.',
+            'lastname.required' => 'Es necesario ingresar al menos un apellido.',
+            'email.required'    => 'Es necesario ingresar un correo electrónico.',
+            'email.max'         => 'El email no debe exceder los 50 caracteres.',
+            'password.min'      => 'La contraseña debe tener minimo 8 caracteres.',
+            'phone.required'    => 'Es necesario ingresar un teléfono.', 
+            'phone.numeric'     => 'El teléfono debe ser numérico.', 
+            'phone.min'         => 'El teléfono debe ser de 10 caracteres.', 
+        ]);
+        
         if(isset($request['password']) && $request['password']!=''){
-            $password = $request['password'];
-            $rules['password'] = ['required', Password::min(8)];
-            $request->validate($rules);
+            $request->validate(['password' => ['required', Password::min(8)]],['password.required' => 'Es necesario ingresar una contraseña.', 'password.min' => 'La contraseña debe tener minimo 8 caracteres.']);
             $request['password'] = bcrypt($request['password']);
         }else{
-            $request->validate($rules);
             $request['password'] = $user->password;
-        } */
+        }
 
         /* MODIFICAR IMAGEN Y ACTUALIZAR REGISTRO */
         if($user){
@@ -144,7 +171,7 @@ class UserController extends Controller
                     $user->avatar = $name_file;
                 } 
             }
-            $request['password'] = bcrypt($request['password']);
+            /* $request['password'] = bcrypt($request['password']); */
             $user->update($request->except(['avatar']));
             return redirect()->back()->with('success', 'Actualización completada satisfactoriamente');
         }
