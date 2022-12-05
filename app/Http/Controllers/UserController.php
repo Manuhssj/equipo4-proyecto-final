@@ -125,7 +125,7 @@ class UserController extends Controller
         $request->validate([
             'name'      => 'required',
             'lastname'  => 'required',
-            'email'     => ['required', 'string', Rule::unique('users')->ignore($user->id)],
+            'email'     => ['required', 'string', Rule::unique('users')->ignore($user->id), 'max:50'],
             'phone'     => 'required|numeric|min:10',
         ],
         [   
