@@ -47,7 +47,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                            <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                            <input type="text" class="form-control" id="firstName" name="name" placeholder="Ingrese el nombre" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                             @error('name')
                                             <small>*{{$message}}</small>
                                             @enderror
@@ -57,7 +57,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="lastname" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" required>
+                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese los apellidos" maxlength="25" onkeypress="return soloLetras(event)" onpaste="return false" required>
                                             @error('lastname')
                                             <small>*{{$message}}</small>
                                             @enderror
@@ -68,7 +68,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="emailInput" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
+                                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" onpaste="return false" required>
                                             @error('email')
                                             <small>*{{$message}}</small>
                                             @enderror
@@ -78,7 +78,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" minlength="8" maxlength="25" required>
+                                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="************" minlength="8" maxlength="25" onpaste="return false" required>
                                             @error('password')
                                             <small>*{{$message}}</small>
                                             @enderror
@@ -90,7 +90,7 @@
                                     <div class="col-xxl-6">
                                         <div>
                                             <label for="phone" class="form-label">Número celular</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" minlength="10" maxlength="10" onkeypress="return solonumeros(event)">
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" onpaste="return false">
                                             @error('phone')
                                             <small>*{{$message}}</small>
                                             @enderror
