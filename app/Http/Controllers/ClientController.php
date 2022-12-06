@@ -61,6 +61,9 @@ class ClientController extends Controller
             'phone' => $request->phone,
         ]);
 
+        if($client) {
+            return redirect()->back()->with('success', 'Se ha añadido el cliente satisfactoriamente.');
+        }
         return redirect()->back()->with('error', 'Hubo un error al añadir el cliente.');
     }
 
