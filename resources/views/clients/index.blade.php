@@ -84,7 +84,7 @@
                                             <div class="col-xxl-6">
                                                 <div>
                                                     <label for="phone" class="form-label">Número celular</label>
-                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)" onpaste="return false">
+                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese el numero celular" minlength="10" maxlength="10" onkeypress="return solonumeros(event)" onpaste="return false">
                                                     @error('phone')
                                                     <small>*{{$message}}</small>
                                                     @enderror
