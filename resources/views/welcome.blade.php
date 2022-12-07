@@ -23,6 +23,7 @@
     <link href="{{asset('/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{asset ('/css/app.css') }}" rel="stylesheet" type="text/css" />
+    
 
 
 </head>
@@ -87,16 +88,20 @@
 
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="text" class="form-control" id="email" name="email" placeholder="ejemplo123@gmail.com" value="{{ old('email') }}">
-                                                    @error('email') <div> {{ $message }} </div> @enderror
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="ejemplo123@gmail.com" value="{{ old('email') }}" onkeypress="return soloLetrascorreo(event)" onpaste="return false" required>
+                                                    @error('email')
+                                                    <small>*{{$message}}</small>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="****************" id="password-input" name="password">
+                                                        <input type="password" class="form-control pe-5 password-input" placeholder="****************" id="password-input" name="password"´ maxlength="25" onpaste="return false">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill"></i></button>
-                                                        @error('password') <div> {{ $message }} </div> @enderror
+                                                        @error('password')
+                                                        <small>*{{$message}}</small>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
@@ -152,6 +157,7 @@
     <script src="{{asset ('/libs/feather-icons/feather.min.js') }}"></script>
     <script src="{{asset ('/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
     <script src="{{asset ('/js/plugins.js') }}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
     <!-- password-addon init -->
     <script src="{{asset ('/js/pages/password-addon.init.js') }}"></script>
