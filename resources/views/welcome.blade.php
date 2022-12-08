@@ -45,7 +45,7 @@
                                     <div class="bg-perra"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
-                                                <a href="index.html" class="d-block">
+                                                <a class="d-block">
                                                     <img src="{{asset('/images/vd-viaje-letras-blancas.png')}}" alt="" height="45">
                                                 </a>
                                             </div>
