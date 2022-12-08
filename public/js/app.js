@@ -121,6 +121,7 @@ function soloLetrascorreo(e)
             return false;
         }
 }
+
 function solonumeroscondecimales(e) 
 {
         key = e.keyCode || e.which;
